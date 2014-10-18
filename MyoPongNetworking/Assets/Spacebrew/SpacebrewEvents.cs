@@ -48,19 +48,19 @@ public class SpacebrewEvents : MonoBehaviour {
 
 		if (this.isPlayer1) {
 
-			sbClient.SendMessage ("paddleOn1", "boolean", this.paddleOn1.ToString());	
+			sbClient.sendMessage ("paddleOn1", "boolean", this.paddleOn1.ToString());	
 
-			sbClient.SendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
+			sbClient.sendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
 
-			sbClient.SendMessage ("ballPos", "string", this.ballPos.ToString());	
+			sbClient.sendMessage ("ballPos", "string", this.ballPos.ToString());	
 
 
 		} else {
 			// is Player 2
 
-			sbClient.SendMessage ("paddleOn1", "boolean", this.paddleOn1.ToString());	
+			sbClient.sendMessage ("paddleOn2", "boolean", this.paddleOn2.ToString());	
 
-			sbClient.SendMessage ("paddlePos2", "string", this.paddlePos2.ToString());	
+			sbClient.sendMessage ("paddlePos2", "string", this.paddlePos2.ToString());	
 
 		}
 	}
