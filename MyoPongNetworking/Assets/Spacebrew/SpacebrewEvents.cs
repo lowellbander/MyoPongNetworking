@@ -52,7 +52,7 @@ public class SpacebrewEvents : MonoBehaviour {
 
 			sbClient.SendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
 
-			sbClient.SendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
+			sbClient.SendMessage ("ballPos", "string", this.ballPos.ToString());	
 
 
 		} else {
@@ -81,10 +81,19 @@ public class SpacebrewEvents : MonoBehaviour {
 
 	public void OnSpacebrewEvent(SpacebrewClient.SpacebrewMessage _msg) {
 		if (this.isPlayer1) {
-
+			if (_msg.name == "paddleOn2") 
+				this.paddleOn2 = Convert.ToBoolean(_msg.value);
+			else if (_msg.name == "paddlePos2")
+				this.paddlePos2 = strToVec(_msg.value);
 		} else {
 			// is Player 2
 
+			if (_msg.name == "paddleOn1") 
+				this.paddleOn1 = Convert.ToBoolean(_msg.value);
+			else if (_msg.name == "paddlePos1")
+				this.paddlePos1 = strToVec(_msg.value).Scale(new Vector3(-1, 1, -1));
+			else if (_msg.name == "ballPos")
+				this.ballPos = strToVec(_msg.value).Scale(new Vector3(-1, 1, -1));
 		}
 	}
 
