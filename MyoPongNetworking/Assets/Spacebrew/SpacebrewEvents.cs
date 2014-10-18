@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class SpacebrewEvents : MonoBehaviour {
 
@@ -64,9 +65,23 @@ public class SpacebrewEvents : MonoBehaviour {
 		}
 	}
 
+	// takes a string and returns a Vector3
+	private Vector3 strToVec (string str) {
+		char[] charsToTrim = {'(',')'};
+		str = str.Trim (charsToTrim);
+		string[] components = str.Split(',');
+		
+		float x = Single.Parse(components [0]);
+		float y = Single.Parse(components [1]);
+		float z = Single.Parse(components [2]);
+		
+		return new Vector3 (x, y, z);
+		
+	}
+
 	public void OnSpacebrewEvent(SpacebrewClient.SpacebrewMessage _msg) {
 		if (this.isPlayer1) {
-			
+
 		} else {
 			// is Player 2
 
