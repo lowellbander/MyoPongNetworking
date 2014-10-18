@@ -10,7 +10,7 @@ public class SpacebrewEvents : MonoBehaviour {
 		GameObject go = GameObject.Find ("SpacebrewObject"); // the name of your client object
 		sbClient = go.GetComponent <SpacebrewClient> ();
 
-		// variables for reference.
+		// VARIABLES FOR REFERENCE.
 		// In production, these will likely be replaced with GameObject.Find("myObject").myAttribute.ToString();
 
 		// player1 is master, player2 is slave
@@ -28,6 +28,18 @@ public class SpacebrewEvents : MonoBehaviour {
 
 		Vector3 ballPos1;
 		Vector3 ballPos2;
+
+		// REGISTER EVENT LISTENERS
+
+		sbClient.addEventListener (this.gameObject, "paddleOn1");
+		sbClient.addEventListener (this.gameObject, "paddleOn2");
+
+		sbClient.addEventListener (this.gameObject, "paddlePos1");
+		sbClient.addEventListener (this.gameObject, "paddlePos2");
+
+		sbClient.addEventListener (this.gameObject, "ballPos1");
+		sbClient.addEventListener (this.gameObject, "ballPos2");
+
 	}
 
 	// Update is called once per frame
