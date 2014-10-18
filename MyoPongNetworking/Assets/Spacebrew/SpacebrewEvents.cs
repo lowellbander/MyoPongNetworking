@@ -21,8 +21,7 @@ public class SpacebrewEvents : MonoBehaviour {
 	// Vector3[] ballPos1;
 	// Vector3[] ballPos2;
 	
-	Vector3 ballPos1;
-	Vector3 ballPos2;
+	Vector3 ballPos;
 
 	// Use this for initialization
 	private void Start () {
@@ -37,17 +36,30 @@ public class SpacebrewEvents : MonoBehaviour {
 		sbClient.addEventListener (this.gameObject, "paddlePos1");
 		sbClient.addEventListener (this.gameObject, "paddlePos2");
 
-		sbClient.addEventListener (this.gameObject, "ballPos1");
-		sbClient.addEventListener (this.gameObject, "ballPos2");
+		sbClient.addEventListener (this.gameObject, "ballPos");
 
 	}
 
 	// Update is called once per frame
 	private void Update () {
+
+		//	sbClient.SendMessage (name, type, value);	
+
 		if (this.isPlayer1) {
-				
+
+			sbClient.SendMessage ("paddleOn1", "boolean", this.paddleOn1.ToString());	
+
+			sbClient.SendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
+
+			sbClient.SendMessage ("paddlePos1", "string", this.paddlePos1.ToString());	
+
+
 		} else {
 			// is Player 2
+
+			sbClient.SendMessage ("paddleOn1", "boolean", this.paddleOn1.ToString());	
+
+			sbClient.SendMessage ("paddlePos2", "string", this.paddlePos2.ToString());	
 
 		}
 	}
