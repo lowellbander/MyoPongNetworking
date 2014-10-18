@@ -90,10 +90,14 @@ public class SpacebrewEvents : MonoBehaviour {
 
 			if (_msg.name == "paddleOn1") 
 				this.paddleOn1 = Convert.ToBoolean(_msg.value);
-			else if (_msg.name == "paddlePos1")
-				this.paddlePos1 = strToVec(_msg.value).Scale(new Vector3(-1, 1, -1));
-			else if (_msg.name == "ballPos")
-				this.ballPos = strToVec(_msg.value).Scale(new Vector3(-1, 1, -1));
+			else if (_msg.name == "paddlePos1") {
+				this.paddlePos1 = strToVec(_msg.value);
+				this.paddlePos1.Scale(new Vector3(-1, 1, -1));
+			}
+			else if (_msg.name == "ballPos") {
+				this.ballPos = strToVec(_msg.value);
+				this.ballPos.Scale(new Vector3(-1, 1, -1));
+			}
 		}
 	}
 
