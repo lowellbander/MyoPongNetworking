@@ -25,7 +25,7 @@ public class SpacebrewEvents : MonoBehaviour {
 	Vector3 ballPos2;
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
 		GameObject go = GameObject.Find ("SpacebrewObject"); // the name of your client object
 		sbClient = go.GetComponent <SpacebrewClient> ();
 
@@ -43,12 +43,22 @@ public class SpacebrewEvents : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
+		if (this.isPlayer1) {
+				
+		} else {
+			// is Player 2
 
+		}
 	}
 
 	public void OnSpacebrewEvent(SpacebrewClient.SpacebrewMessage _msg) {
+		if (this.isPlayer1) {
+			
+		} else {
+			// is Player 2
 
+		}
 	}
 
 }
